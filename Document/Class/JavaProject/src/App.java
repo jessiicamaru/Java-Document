@@ -1,8 +1,23 @@
+import java.util.*;
+
 public class App {
 
     public static void main(String[] args) {
-        Person person = new Person("Jack", 30, "dandrew2407@gmail.com");
+        Scanner scanner = new Scanner(System.in);
 
-        person.greeting();
+        System.out.print("Input your name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Input your email: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Input your age: ");
+        int age = scanner.nextInt();
+
+        Person person = new Person(name, age, email);
+
+        person.sayHello();
+
+        scanner.close();
     }
 }
