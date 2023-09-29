@@ -84,16 +84,19 @@ public class App {
                 ShapeType square = ShapeType.SQUARE;
                 square.setValue(side);
 
-                System.out.println("Square area is: " + square.calculateArea());
+                System.out.println("Square area is: " + (int) square.calculateArea());
                 break;
             case "RECTANGLE":
                 System.out.print("Input width: ");
                 int width = scanner.nextInt();
 
-                ShapeType rectangle = ShapeType.RECTANGLE;
-                rectangle.setValue(side);
+                System.out.print("Input height: ");
+                int height = scanner.nextInt();
 
-                System.out.println("Square area is: " + rectangle.calculateArea());
+                ShapeType rectangle = ShapeType.RECTANGLE;
+                rectangle.setValue(width, height);
+
+                System.out.println("Square area is: " + (int) rectangle.calculateArea());
                 break;
         }
 
