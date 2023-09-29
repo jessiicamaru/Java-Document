@@ -1,6 +1,8 @@
+import java.text.DecimalFormat;
 import java.util.*;
 
 interface Shape {
+    void setValue(int... value);
     double calculateArea();
 }
 
@@ -8,8 +10,11 @@ enum ShapeType implements Shape {
     CIRCLE {
         private int radius;
 
-        public void setValue(int radius) {
-            this.radius = radius;
+        @Override
+        public void setValue(int... values) {
+            if (values.length > 0) {
+                this.radius = values[0];
+            }
         }
 
         @Override
@@ -20,8 +25,11 @@ enum ShapeType implements Shape {
     SQUARE {
         private int side;
 
-        public void setValue(int side) {
-            this.side = side;
+        @Override
+        public void setValue(int... values) {
+            if (values.length > 0) {
+                this.side = values[0];
+            }
         }
 
         @Override
@@ -32,9 +40,12 @@ enum ShapeType implements Shape {
     RECTANGLE {
         private int height, width;
 
-        public void setValue(int height, int width) {
-            this.height = height;
-            this.width = width;
+        @Override
+        public void setValue(int... values) {
+            if (values.length > 1) {
+                this.width = values[0];
+                this.height = values[1];
+            }
         }
 
         @Override
@@ -59,12 +70,30 @@ public class App {
                 System.out.print("Input radius: ");
                 int radius = scanner.nextInt();
 
+                DecimalFormat decimalFormat = new DecimalFormat("#.###");
+
                 ShapeType circle = ShapeType.CIRCLE;
                 circle.setValue(radius);
+
+                System.out.println("Circle area is: " + decimalFormat.format(circle.calculateArea()));
                 break;
             case "SQUARE":
+                System.out.print("Input side: ");
+                int side = scanner.nextInt();
+
+                ShapeType square = ShapeType.SQUARE;
+                square.setValue(side);
+
+                System.out.println("Square area is: " + square.calculateArea());
                 break;
             case "RECTANGLE":
+                System.out.print("Input width: ");
+                int width = scanner.nextInt();
+
+                ShapeType rectangle = ShapeType.RECTANGLE;
+                rectangle.setValue(side);
+
+                System.out.println("Square area is: " + rectangle.calculateArea());
                 break;
         }
 
