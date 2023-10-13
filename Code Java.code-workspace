@@ -3,5 +3,13 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"java.project.sourcePaths": [
+			"Inheritance_Exercise_2/JavaProject/src",
+			"Document/Inheritance/JavaProject/src",
+			"Document/Abstraction/JavaProject/src",
+			"Document/Abstraction/JavaProject"
+		]
+	}
 }
